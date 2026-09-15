@@ -1,6 +1,3 @@
--- Pool Car Request & Approve System — Supabase/Postgres schema
--- Run this once in Supabase: Project → SQL Editor → New query → paste → Run.
-
 create table if not exists users (
   id            bigint generated always as identity primary key,
   name          text not null,
@@ -99,3 +96,4 @@ where not exists (select 1 from drivers where drivers.name = d.name);
 insert into users (name, role, pin_hash)
 select 'Fleet Manager', 'admin', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f'
 where not exists (select 1 from users where name = 'Fleet Manager' and role = 'admin');
+
